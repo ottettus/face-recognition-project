@@ -18,7 +18,6 @@ class FaceRecognizer:
             face = self.detect_faces(frame)
             face_with_rectangle = self.draw_faces(face)
 
-            
 
 
 
@@ -30,9 +29,10 @@ class FaceRecognizer:
 
 
 
-    def draw_faces(self, faces_location):
+    def draw_faces(self, frame, faces_location):
         for x, y, w, h in faces_location:
-            return cv2.rectangle(faces_location,(x, y),(x + w, y + h), (0, 255, 0), 2)
+            cv2.rectangle(frame,(x, y),(x + w, y + h), (0, 255, 0), 2)
+            return frame
 
     def cleanup(self):
         pass
